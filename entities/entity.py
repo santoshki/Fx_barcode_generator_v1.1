@@ -1,15 +1,15 @@
 import wx
+from entities import keybindings
 
 
 class MyFrame(wx.Frame):
     def __init__(self):
         super().__init__(parent=None, title='Fx_Image Compressor Alphav1.1')
         panel = wx.Panel(self)
-        #panel.SetSizer(wx.DefaultSize)
+        # panel.SetSizer(wx.DefaultSize)
         self.title_label = wx.StaticText(panel, id=1, label="Old Label.", pos=(150, 50),
                                          size=wx.DefaultSize, style=0, name="statictext")
         self.title_label.SetLabel("Barcode Generator")
-
         self.society_name_values = ["PSP Norwood", "Other"]
         self.book_category_values = ["Kids", "Philosophy", "Religion", "Social Sciences", "Language", "Science",
                                      "Technology",
@@ -35,7 +35,22 @@ class MyFrame(wx.Frame):
         self.barcode_generate_button = wx.Button(panel, label="Generate", pos=(25, 250))
         self.barcode_app_exit_button = wx.Button(panel, label="Exit", pos=(250, 400))
         self.barcode_app_about_button = wx.Button(panel, label="About", pos=(25, 400))
+
+        book_category_value = self.book_category_dropdown.GetValue()
+        self.barcode_generate_button.Bind(wx.EVT_BUTTON, self.on_click_barcode_generate_button)
+        self.barcode_app_exit_button.Bind(wx.EVT_BUTTON, self.on_click_exit_button)
+        self.barcode_app_about_button.Bind(wx.EVT_BUTTON, self.on_click_about_button)
         self.Show()
+
+    def on_click_barcode_generate_button(self, event):
+        keybindings.barcode_generation(self.society_names_dropdown.GetValue(), self.book_category_dropdown.GetValue(),
+                                       self.barcode_count.GetValue())
+
+    def on_click_about_button(self, event):
+        keybindings.about_app_action(self)
+
+    def on_click_exit_button(self, event):
+        keybindings.exit_app_action(self)
 
 
 if __name__ == '__main__':
