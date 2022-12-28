@@ -1,7 +1,7 @@
 from barcode import EAN13
 from barcode.writer import ImageWriter
 from Interface import actioninterface
-from database import dbconfig, dbread
+from database import dbconfig, dbread, dbinsert
 import pathlib
 import os
 
@@ -74,4 +74,4 @@ def generate_barcode(society_names_dropdown_value, book_category_dropdown_value,
 
             print(str(i) + " Barcodes generated and saved successfully.")
             print("new sequence count value:", new_sequence_count_value)
-        dbconfig.db_insert(book_category_dropdown_value, int(new_sequence_count_value))
+        dbinsert.db_insert(book_category_dropdown_value, int(new_sequence_count_value))
