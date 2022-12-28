@@ -5,3 +5,9 @@ dbnames:
   Religion: "True"
   Social Sciences: "True"
   Language: "True"
+  Science: "True"
+  Technology: "True"
+  Arts: "True"
+  Literature: "True"
+  History, Geography: "True"
+
