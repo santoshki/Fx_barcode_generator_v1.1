@@ -7,7 +7,18 @@ yaml_filepath = os.path.dirname(current_directory) + "\\database\\config.yaml"
 print(yaml_filepath)
 
 
-def yaml_parse():
+def dbpath_parse():
+    with open(yaml_filepath, "r") as stream:
+        try:
+            data = yaml.safe_load(stream)
+            db_path = data["db_path"]
+            return db_path
+        except Exception as e:
+            print("Exception occurred while parsing db path value:", e)
+            return -1
+
+
+def dbnames_parse():
     with open(yaml_filepath, "r") as stream:
         try:
             db_names_list = []
@@ -26,5 +37,9 @@ def yaml_parse():
             print("Dbs enabled:", db_enable)
             return db_enable
         except Exception as e:
-            print("Exception occurred while parsing yaml file:", e)
+            print("Exception occurred while parsing dbnames value:", e)
             return -1
+
+
+if __name__ == '__main__':
+    dbnames_parse()
