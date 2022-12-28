@@ -12,26 +12,25 @@ def db_insert(book_category_value, sequence_count_value):
     conn = sqlite3.connect(db_path + "\\" + db_name)
     cursor = conn.cursor()
     try:
-        cursor.execute(''' SELECT count(name) FROM sqlite_master WHERE type='table' AND name='sequence_counter_value' ''')
+        cursor.execute('''SELECT count(name) FROM sqlite_master WHERE type='table' AND name='sequence_counter_value' 
+        ''')
         if cursor.fetchone()[0] == 0:
             table_create = """CREATE TABLE sequence_counter_value(COUNT TEXT)"""
             cursor.execute(table_create)
             conn.commit()
             print("Table created in SQLlite DB.")
-        #c.execute('UPDATE abc SET logintime = ? WHERE useremail = ?', (now, email))
-        cursor.execute("INSERT INTO sequence_counter_value(COUNT)" "VALUES(?)", str(sequence_count_value))
+
+        cursor.execute("INSERT INTO sequence_counter_value(COUNT)" "VALUES(?)", (str(sequence_count_value),))
         #cursor.execute("UPDATE sequence_counter_value SET COUNT = ?", str(sequence_count_value))
         conn.commit()
         print("Data inserted/updated in SQL lite db")
-        data = cursor.execute('''SELECT * FROM sequence_counter_value''')
-        for row in data:
-            print(row)
+
     except Exception as e:
         print("Exception occurred in dbconfig:", e)
         return 0
 
 
-if __name__ == '__main__':
+"""if __name__ == '__main__':
     book_category = "Kids"
     sequence_count_value = "0"
-    db_insert(book_category, sequence_count_value)
+    db_insert(book_category, sequence_count_value)"""
