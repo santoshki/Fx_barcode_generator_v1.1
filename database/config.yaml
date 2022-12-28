@@ -1,4 +1,22 @@
+society names:
+  PSP Norwood: "True"
+  PSP Birchwood: "False"
+  Other: "True"
+
+book categories:
+  Kids: "True"
+  Philosophy: "True"
+  Religion: "True"
+  Social Sciences: "True"
+  Language: "True"
+  Science: "True"
+  Technology: "True"
+  Arts: "True"
+  Literature: "True"
+  History, Geography: "True"
+
 db_path: "\\databases"
+
 dbnames:
   Kids: "True"
   Philosophy: "True"
@@ -10,4 +28,19 @@ dbnames:
   Arts: "True"
   Literature: "True"
   History, Geography: "True"
+
+dewey decimals:
+  Kids: "000"
+  Philosophy: "001"
+  Religion: "002"
+  Social Sciences: "003"
+  Language: "004"
+  Science: "005"
+  Technology: "006"
+  Arts: "007"
+  Literature: "008"
+  History, Geography: "009"
+
+
+
 
