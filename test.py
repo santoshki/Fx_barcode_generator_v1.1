@@ -4,7 +4,7 @@ import datetime
 import pathlib
 import os
 
-"""society_name = input("Enter society name:")
+society_name = input("Enter society name:")
 book_category = input("Enter book category:")
 barcode_count = input("Enter the number of barcodes to be generated:")
 society_name_phrase_value = "0000"
@@ -31,9 +31,9 @@ for i in range(0, int(barcode_count)):
     generated_barcode = EAN13(str(barcode_number), writer=ImageWriter())
     name = "barcode" + str(i)
     generated_barcode.save(name)
-    print("Barcode" + str(i) + "generated and saved successfully.")"""
+    print("Barcode" + str(i) + "generated and saved successfully.")
 
-if __name__ == '__main__':
+"""if __name__ == '__main__':
     current_dir = pathlib.Path(__file__).parent
     print("Current location:", current_dir)
     sav_dir = os.path.dirname(current_dir)
@@ -47,4 +47,4 @@ if __name__ == '__main__':
             os.mkdir(path)
             print("Folder created successfully.")
     except OSError as error:
-        print(error)
+        print(error)"""
