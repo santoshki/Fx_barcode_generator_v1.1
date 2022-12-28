@@ -19,3 +19,7 @@ def barcode_generation(society_names_dropdown_value, book_category_dropdown_valu
         actions.generate_barcode(society_names_dropdown_value, book_category_dropdown_value, barcode_count_value)
     else:
         print("Select a valid number of Barcodes to be generated.")
+
+
+def okay_button(self):
+    print("Okay button pressed")

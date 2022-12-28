@@ -2,9 +2,9 @@ import wx
 from entities import keybindings
 
 
-class MyFrame(wx.Frame):
+class BarcodeGeneratorUI(wx.Frame):
     def __init__(self):
-        super().__init__(parent=None, title='Fx_Image Compressor Alphav1.1')
+        super().__init__(parent=None, title='Fx_Barcode_generator Alphav1.1')
         panel = wx.Panel(self)
         # panel.SetSizer(wx.DefaultSize)
         self.title_label = wx.StaticText(panel, id=1, label="Old Label.", pos=(150, 50),
@@ -53,7 +53,20 @@ class MyFrame(wx.Frame):
         keybindings.exit_app_action(self)
 
 
+class ActionComplete(wx.Frame):
+
+    def __init__(self):
+        wx.Frame.__init__(self, None, title="Fx_Barcode_generator Alphav1.1")
+        panel = wx.Panel(self)
+        txt = wx.StaticText(panel, label="Barcodes generated Successfully!")
+        self.okay_button = wx.Button(panel, label="Okay", pos=(25, 25))
+        self.okay_button.Bind(wx.EVT_BUTTON, self.on_click_okay_button)
+
+    def on_click_okay_button(self, event):
+        self.Close()
+
+
 if __name__ == '__main__':
     app = wx.App()
-    frame = MyFrame()
+    frame = BarcodeGeneratorUI()
     app.MainLoop()

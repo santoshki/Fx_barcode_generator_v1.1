@@ -1,9 +1,10 @@
 from barcode import EAN13
 from barcode.writer import ImageWriter
 from Interface import actioninterface
-from database import dbconfig, dbread, dbinsert
+from database import dbread, dbinsert
 import pathlib
 import os
+from entities import entity
 
 current_directory = pathlib.Path(__file__).parent
 directory_save_loc = os.path.dirname(current_directory)
@@ -75,3 +76,6 @@ def generate_barcode(society_names_dropdown_value, book_category_dropdown_value,
             print(str(i) + " Barcodes generated and saved successfully.")
             print("new sequence count value:", new_sequence_count_value)
         dbinsert.db_insert(book_category_dropdown_value, int(new_sequence_count_value))
+        action_complete_frame = entity.ActionComplete()
+        action_complete_frame.Show()
+
