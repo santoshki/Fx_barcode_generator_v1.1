@@ -14,10 +14,10 @@ def db_read(book_category_value):
         data = cursor.execute('''SELECT * FROM sequence_counter_value''')
         val = " "
         for row in data:
-            print(row)
+            #print(row)
             for i in row:
                 val = val + i
-            print(i)
+            #print(i)
         conn.commit()
         if val == " ":
             return 0
@@ -27,6 +27,6 @@ def db_read(book_category_value):
         print("Exception occurred while reading db values:", e)
         return -1
 
-if __name__ == '__main__':
+"""if __name__ == '__main__':
     book_category = "Kids"
-    db_read(book_category)
+    db_read(book_category)"""

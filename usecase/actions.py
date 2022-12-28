@@ -2,7 +2,11 @@ from barcode import EAN13
 from barcode.writer import ImageWriter
 from Interface import actioninterface
 from database import dbconfig, dbread
+import pathlib
+import os
 
+current_directory = pathlib.Path(__file__).parent
+directory_save_loc = os.path.dirname(current_directory)
 
 def generate_barcode(society_names_dropdown_value, book_category_dropdown_value, barcode_count_value):
     sequence_count = dbread.db_read(book_category_dropdown_value)
@@ -50,7 +54,24 @@ def generate_barcode(society_names_dropdown_value, book_category_dropdown_value,
             print("Barcode number:", barcode_number)
             generated_barcode = EAN13(str(barcode_number), writer=ImageWriter())
             barcode_value = str(barcode_number)
-            generated_barcode.save(barcode_value)
+            barcode_save_directory = str(directory_save_loc) + "\\Generated Barcodes"
+            barcode_save_path = barcode_save_directory + "\\" + str(book_category_dropdown_value)
+            barcode_save_value = barcode_save_path + "\\" + barcode_value
+            try:
+                if os.path.exists(barcode_save_directory):
+                    pass
+                else:
+                    os.mkdir(barcode_save_directory)
+                    print("Generated Barcodes Directory created successfully.")
+                if os.path.exists(barcode_save_path):
+                    pass
+                else:
+                    os.mkdir(barcode_save_path)
+                    print(str(book_category_dropdown_value) + " folder created successfully.")
+                generated_barcode.save(barcode_save_value)
+            except Exception as e:
+                print("Exception occurred while saving the barcode:", e)
+
             print(str(i) + " Barcodes generated and saved successfully.")
             print("new sequence count value:", new_sequence_count_value)
         dbconfig.db_insert(book_category_dropdown_value, int(new_sequence_count_value))

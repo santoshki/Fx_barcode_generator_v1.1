@@ -30,7 +30,7 @@ def db_insert(book_category_value, sequence_count_value):
         return 0
 
 
-"""if __name__ == '__main__':
+if __name__ == '__main__':
     book_category = "Kids"
     sequence_count_value = "0"
-    db_insert(book_category, sequence_count_value)"""
+    db_insert(book_category, sequence_count_value)

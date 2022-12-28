@@ -1,5 +1,4 @@
 from usecase import actions
-from entities import entity
 
 
 def exit_app_action(self):
@@ -18,3 +17,5 @@ def barcode_generation(society_names_dropdown_value, book_category_dropdown_valu
     print("Number of barcodes to be generated:", barcode_count_value)
     if barcode_count_value > 0:
         actions.generate_barcode(society_names_dropdown_value, book_category_dropdown_value, barcode_count_value)
+    else:
+        print("Select a valid number of Barcodes to be generated.")
