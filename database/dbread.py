@@ -15,6 +15,7 @@ def db_read(book_category_value):
         try:
             data = cursor.execute('''SELECT * FROM sequence_counter_value''')
             val = " "
+            i=0
             for row in data:
                 for i in row:
                     val = val + i

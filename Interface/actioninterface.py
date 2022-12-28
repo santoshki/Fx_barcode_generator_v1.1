@@ -11,4 +11,3 @@ def get_cal_year():
     except Exception as e:
         print("Exception occurred while computing calendar year values:", e)
         return -1
-

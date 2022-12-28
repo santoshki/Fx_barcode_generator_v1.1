@@ -4,9 +4,8 @@ from entities import keybindings
 
 class BarcodeGeneratorUI(wx.Frame):
     def __init__(self):
-        super().__init__(parent=None, title='Fx_Barcode_generator Alphav1.1')
+        super().__init__(parent=None, title='Fx_Barcode_generator Alpha_v1.1')
         panel = wx.Panel(self)
-        # panel.SetSizer(wx.DefaultSize)
         self.title_label = wx.StaticText(panel, id=1, label="Old Label.", pos=(150, 50),
                                          size=wx.DefaultSize, style=0, name="statictext")
         self.title_label.SetLabel("Barcode Generator")
@@ -35,8 +34,6 @@ class BarcodeGeneratorUI(wx.Frame):
         self.barcode_generate_button = wx.Button(panel, label="Generate", pos=(25, 250))
         self.barcode_app_exit_button = wx.Button(panel, label="Exit", pos=(250, 400))
         self.barcode_app_about_button = wx.Button(panel, label="About", pos=(25, 400))
-
-        book_category_value = self.book_category_dropdown.GetValue()
         self.barcode_generate_button.Bind(wx.EVT_BUTTON, self.on_click_barcode_generate_button)
         self.barcode_app_exit_button.Bind(wx.EVT_BUTTON, self.on_click_exit_button)
         self.barcode_app_about_button.Bind(wx.EVT_BUTTON, self.on_click_about_button)

@@ -41,5 +41,4 @@ def dbnames_parse():
             return -1
 
 
-if __name__ == '__main__':
-    dbnames_parse()
+
