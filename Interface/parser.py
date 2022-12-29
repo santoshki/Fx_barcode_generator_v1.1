@@ -51,6 +51,7 @@ def book_category_parser():
         print("Exception occurred while parsing Book category values:", e)
         return -1
 
+
 def dbpath_parse():
     try:
         with open(yaml_filepath, "r") as stream:
@@ -78,7 +79,6 @@ def dbnames_parse():
             for j in range(0, len(db_names_values)):
                 if db_names_values[j] == "True":
                     db_enable.append(db_names_list[j])
-            print("Dbs enabled:", db_enable)
             return db_enable
     except Exception as e:
         print("Exception occurred while parsing dbnames value:", e)
