@@ -15,6 +15,7 @@ book categories:
   Literature: "True"
   History, Geography: "True"
   Fiction: "True"
+  Magazine: "True"
 
 db_path: "\\databases"
 
@@ -30,6 +31,7 @@ dbnames:
   Literature: "True"
   History, Geography: "True"
   Fiction: "True"
+  Magazine: "True"
 
 dewey decimals:
   Kids: "100"
@@ -43,6 +45,7 @@ dewey decimals:
   Literature: "008"
   History, Geography: "009"
   Fiction: "010"
+  Magazine: "555"
 
 
 

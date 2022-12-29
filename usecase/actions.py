@@ -86,11 +86,8 @@ def generate_barcode(society_names_dropdown_value, book_category_dropdown_value,
 
                             font = ImageFont.truetype("arial.ttf", fontsize)
                             while font.getsize(txt)[0] < img_fraction * img.size[0]:
-                                # iterate until the text size is just larger than the criteria
                                 fontsize += 1
                                 font = ImageFont.truetype("arial.ttf", fontsize)
-
-                            # optionally de-increment to be sure it is less than criteria
                             fontsize -= 2
                             font = ImageFont.truetype("arial.ttf", fontsize)
                             I1 = ImageDraw.Draw(img)
